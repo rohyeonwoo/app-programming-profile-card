@@ -1,38 +1,24 @@
-.App {
-  text-align: center;
-}
+.container { max-width: 340px; margin: 28px auto; text-align: center; }
+.container > h1 { font-size: 20px; }
+.display, .container > ul, .keypad { border: 1px solid #eaeaea; border-radius: 12px; background: #eee; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.display {  font-size: 34px; font-weight: 600; text-align: right; height: var(--display-h); padding: 16px; box-sizing: border-box;
+    display: flex; align-items: center; justify-content: flex-end; }
+.container > ul { font-size: 20px; margin: 10px 0; padding: 10px 14px; min-height: 185px; background: #fafafa;
+    text-align: right; border: 1px solid #eaeaea; overflow-y: auto; box-sizing: border-box;   height: var(--history-h);
+}.container > ul li { line-height: 1.6; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.keypad { margin-top: 10px; padding: 10px; display: grid;
+    grid-template-columns: minmax(0, 1fr) 88px; gap: 10px; align-items: stretch; }
+.numbers { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 10px; }
+.operators { display: flex; flex-direction: column; gap: 10px; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.btn { width: 100%; height: 100%; min-height: 40px; border: 1px solid #e5e7eb;
+    border-radius: 10px; background: #ffffff; font-size: 18px; cursor: pointer;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03); }.btn:active { transform: translateY(1px); }
 
-.App-link {
-  color: #61dafb;
-}
+.operators .btn { background: #eaf4ff; }
+.operators .btn:last-child { background: #9ee1ff; font-weight: 700; }
+.numbers .btn:is(:last-child, :nth-last-child(2)) { background: #ffe6e6; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+:root { --display-h: 72px; --history-h: 84px; }
